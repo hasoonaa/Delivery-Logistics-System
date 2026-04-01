@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox
+    xmlns:fx="http://javafx.com/fxml/1"
+    xmlns="http://javafx.com/javafx/17"
+    fx:controller="GroupProjectB.Delivery.and.Logistics.AdminDashboardController"
+    prefWidth="1000" prefHeight="580"
+    styleClass="admin-root"
+    stylesheets="@AdminsDashboard.css">
+
+    <!-- ══════════════════════════════════════
+         LEFT SIDEBAR
+    ══════════════════════════════════════ -->
+    <VBox styleClass="sidebar" prefWidth="180" spacing="4">
+        <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+
+        <!-- Changed: "Admins page" → "Admins Dashboard" -->
+        <Label text="Admins Dashboard" styleClass="sidebar-heading"/>
+        <Region prefHeight="10"/>
+
+        <!-- Welcome label -->
+        <Label fx:id="welcomeLabel" text="Welcome back Hasan!" styleClass="welcome-badge"/>
+        <Region prefHeight="10"/>
+
+        <!-- Kept: Delivery map and Settings only -->
+        <Button text="Delivery map" styleClass="nav-link" maxWidth="Infinity" onAction="#handleDeliveryMap"/>
+        <Button text="Settings"     styleClass="nav-link" maxWidth="Infinity" onAction="#handleSettings"/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+        <Button text="Log out" styleClass="logout-btn" maxWidth="Infinity" onAction="#handleLogout"/>
+    </VBox>
+
+    <!-- ══════════════════════════════════════
+         MAIN CONTENT
+    ══════════════════════════════════════ -->
+    <VBox HBox.hgrow="ALWAYS" spacing="0" styleClass="main-content">
+
+        <!-- ── Top toolbar ── -->
+        <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+
+            <!-- Search -->
+            <HBox styleClass="search-box" alignment="CENTER_LEFT" spacing="6">
+                <Label text="🔍" styleClass="search-icon"/>
+                <TextField fx:id="searchField" promptText="Search Deliveries"
+                           styleClass="search-input" prefWidth="180"/>
+            </HBox>
+
+            <!-- Status filter -->
+            <MenuButton fx:id="statusMenu" text="Status ▾" styleClass="filter-btn">
+                <items>
+                    <MenuItem text="All"              onAction="#filterAll"/>
+                    <MenuItem text="Pending"          onAction="#filterPending"/>
+                    <MenuItem text="In Transit"       onAction="#filterInTransit"/>
+                    <MenuItem text="Out for Delivery" onAction="#filterOutForDelivery"/>
+                    <MenuItem text="Delivered"        onAction="#filterDelivered"/>
+                    <MenuItem text="Failed"           onAction="#filterFailed"/>
+                </items>
+            </MenuButton>
+
+            <!-- Driver filter -->
+            <MenuButton fx:id="driverMenu" text="Driver ▾" styleClass="filter-btn">
+                <items>
+                    <MenuItem text="Unassigned" onAction="#filterUnassigned"/>
+                    <MenuItem text="Ahmed"      onAction="#filterAhmed"/>
+                    <MenuItem text="Sara"       onAction="#filterSara"/>
+                    <MenuItem text="Omar"       onAction="#filterOmar"/>
+                </items>
+            </MenuButton>
+
+            <!-- Sort -->
+            <MenuButton text="Sort ▾" styleClass="filter-btn">
+                <items>
+                    <MenuItem text="Delivery ID ↑" onAction="#sortById"/>
+                    <MenuItem text="Delivery ID ↓" onAction="#sortByIdDesc"/>
+                    <MenuItem text="ETA ↑"         onAction="#sortByEta"/>
+                    <MenuItem text="ETA ↓"         onAction="#sortByEtaDesc"/>
+                </items>
+            </MenuButton>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- + New Delivery -->
+            <Button fx:id="newDeliveryBtn" text="+ New Delivery"
+                    styleClass="new-delivery-btn"
+                    onAction="#handleNewDelivery"/>
+
+            <!-- TEST DELIVERY -->
+            <Button text="TEST DELIVERY" styleClass="test-btn" onAction="#handleTestDelivery"/>
+        </HBox>
+
+        <!-- ── Table + Activity Log ── -->
+        <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" spacing="0">
+
+            <TableView fx:id="deliveriesTable" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS"
+                       styleClass="deliveries-table">
+                <columns>
+                    <TableColumn fx:id="colDeliveryId" text="Delivery ID" prefWidth="90"/>
+                    <TableColumn fx:id="colOrderRef"   text="Order Ref"   prefWidth="80"/>
+                    <TableColumn fx:id="colAddress"    text="Address"     prefWidth="150"/>
+                    <TableColumn fx:id="colDriver"     text="Driver"      prefWidth="100"/>
+                    <TableColumn fx:id="colStatus"     text="Status"      prefWidth="90"/>
+                    <TableColumn fx:id="colEta"        text="ETA"         prefWidth="110"/>
+                    <TableColumn fx:id="colActions"    text="Actions"     prefWidth="130"/>
+                </columns>
+            </TableView>
+
+            <VBox fx:id="activityPanel" styleClass="activity-panel" prefWidth="220" spacing="8">
+                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                <Label text="Activity Log" styleClass="activity-title"/>
+                <VBox fx:id="activityList" spacing="6"/>
+            </VBox>
+
+        </HBox>
+    </VBox>
+
+</HBox>

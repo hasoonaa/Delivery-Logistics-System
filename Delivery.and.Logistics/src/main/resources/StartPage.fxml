@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns:fx="http://javafx.com/fxml/1"
+    xmlns="http://javafx.com/javafx/17"
+    fx:controller="GroupProjectB.Delivery.and.Logistics.StartPageController"
+    prefWidth="800" prefHeight="500"
+    styleClass="root-pane"
+    stylesheets="@StartPage.css">
+
+    <VBox alignment="CENTER" spacing="40"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- Title block -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="Delivery &amp; Logistics" styleClass="start-app-title"/>
+            <Label text="Who are you logging in as?" styleClass="start-subtitle"/>
+        </VBox>
+
+        <!-- Two role cards -->
+        <HBox alignment="CENTER" spacing="30">
+
+            <!-- Driver card -->
+            <VBox styleClass="role-card" alignment="CENTER" spacing="16"
+                  prefWidth="200" prefHeight="200"
+                  onMouseClicked="#handleDriver">
+                <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+                <Label text="🚚" styleClass="role-icon"/>
+                <Label text="Driver" styleClass="role-label"/>
+                <Label text="Access your deliveries and route" styleClass="role-desc"/>
+            </VBox>
+
+            <!-- Admin card -->
+            <VBox styleClass="role-card" alignment="CENTER" spacing="16"
+                  prefWidth="200" prefHeight="200"
+                  onMouseClicked="#handleAdmin">
+                <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+                <Label text="🛠" styleClass="role-icon"/>
+                <Label text="Admin" styleClass="role-label"/>
+                <Label text="Manage orders, drivers and deliveries" styleClass="role-desc"/>
+            </VBox>
+
+        </HBox>
+
+    </VBox>
+</AnchorPane>

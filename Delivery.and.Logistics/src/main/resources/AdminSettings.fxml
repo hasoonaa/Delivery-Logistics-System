@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox
+    xmlns:fx="http://javafx.com/fxml/1"
+    xmlns="http://javafx.com/javafx/17"
+    fx:controller="GroupProjectB.Delivery.and.Logistics.AdminSettingsController"
+    prefWidth="1000" prefHeight="580"
+    styleClass="admin-root"
+    stylesheets="@AdminsDashboard.css">
+
+    <!-- ══════════════════════════════════════
+         LEFT SIDEBAR
+    ══════════════════════════════════════ -->
+    <VBox styleClass="sidebar" prefWidth="180" spacing="4">
+        <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+
+        <Label text="Admins Dashboard" styleClass="sidebar-heading"/>
+        <Region prefHeight="10"/>
+        <Label fx:id="welcomeLabel" text="Welcome back!" styleClass="welcome-badge"/>
+        <Region prefHeight="10"/>
+
+        <Button text="Delivery map" styleClass="nav-link"        maxWidth="Infinity" onAction="#handleDeliveryMap"/>
+        <Button text="Settings"     styleClass="nav-link-active" maxWidth="Infinity"/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+        <Button text="← Back to Dashboard" styleClass="logout-btn" maxWidth="Infinity" onAction="#handleBack"/>
+    </VBox>
+
+    <!-- ══════════════════════════════════════
+         MAIN CONTENT
+    ══════════════════════════════════════ -->
+    <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS" styleClass="settings-scroll">
+        <VBox spacing="20" styleClass="settings-content">
+            <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+            <!-- Page heading -->
+            <Label text="Settings" styleClass="settings-page-title"/>
+
+            <!-- ── 1. Account Settings ── -->
+            <VBox styleClass="settings-card" spacing="16">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Account Settings" styleClass="settings-card-title"/>
+                <Separator/>
+
+                <!-- Change Username -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="New Username" styleClass="field-label"/>
+                        <TextField fx:id="usernameField"
+                                   promptText="Enter new username"
+                                   styleClass="input-field" prefWidth="280"/>
+                    </VBox>
+                    <Button text="Update Username" styleClass="settings-btn"
+                            onAction="#handleChangeUsername"/>
+                </HBox>
+
+                <!-- Change Password -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Current Password" styleClass="field-label"/>
+                        <PasswordField fx:id="currentPasswordField"
+                                       promptText="Enter current password"
+                                       styleClass="input-field" prefWidth="280"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="New Password" styleClass="field-label"/>
+                        <PasswordField fx:id="newPasswordField"
+                                       promptText="Enter new password"
+                                       styleClass="input-field" prefWidth="280"/>
+                    </VBox>
+                    <Button text="Update Password" styleClass="settings-btn"
+                            onAction="#handleChangePassword"/>
+                </HBox>
+            </VBox>
+
+            <!-- ── 2. Delete Driver ── -->
+            <VBox styleClass="settings-card" spacing="16">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Delete Driver" styleClass="settings-card-title"/>
+                <Separator/>
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Select Driver to Remove" styleClass="field-label"/>
+                        <ComboBox fx:id="driverDeleteSelector" prefWidth="280"
+                                  styleClass="filter-btn"/>
+                    </VBox>
+                    <Button text="Delete Driver" styleClass="settings-delete-btn"
+                            onAction="#handleDeleteDriver"/>
+                </HBox>
+            </VBox>
+
+            <!-- ── 3. About ── -->
+            <VBox styleClass="settings-card" spacing="12">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="About" styleClass="settings-card-title"/>
+                <Separator/>
+
+                <HBox spacing="8">
+                    <Label text="App Name:"     styleClass="field-label"/>
+                    <Label text="Delivery &amp; Logistics" styleClass="detail-value-bold"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Label text="Version:"      styleClass="field-label"/>
+                    <Label text="1.0.0"         styleClass="detail-value"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Label text="Developed by:" styleClass="field-label"/>
+                    <Label text="Group Project B" styleClass="detail-value"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Label text="Database:"     styleClass="field-label"/>
+                    <Label text="SQLite — DRIVERS.db" styleClass="detail-value"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</HBox>

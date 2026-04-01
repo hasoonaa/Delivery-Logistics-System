@@ -1,0 +1,171 @@
+/* ===== Root Background ===== */
+.root-pane {
+    -fx-background-color: #6b6b6b;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b2b2b;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: center;
+}
+
+/* ===== White Card (login) ===== */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+
+/* ===== Field Labels ===== */
+.field-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: normal;
+}
+
+/* ===== Input Fields ===== */
+.input-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 10px;
+    -fx-font-size: 13px;
+    -fx-pref-height: 36px;
+}
+
+.input-field:focused {
+    -fx-border-color: #888888;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 1);
+}
+
+/* ===== Login Button ===== */
+.login-btn {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-pref-height: 38px;
+    -fx-cursor: hand;
+}
+
+.login-btn:hover {
+    -fx-background-color: #444444;
+}
+
+.login-btn:pressed {
+    -fx-background-color: #111111;
+}
+
+/* ===== Forgot Password Link ===== */
+.forgot-link {
+    -fx-text-fill: #555555;
+    -fx-underline: true;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER;
+    -fx-cursor: hand;
+}
+
+/* ============================================================
+   DRIVER DASHBOARD STYLES
+   ============================================================ */
+
+.dashboard-root {
+    -fx-background-color: #2d2d2d;
+}
+
+.topbar {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: transparent transparent #3a3a3a transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.welcome-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.dash-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 4);
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+    -fx-font-weight: normal;
+    -fx-alignment: CENTER;
+}
+
+.map-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 6px;
+    -fx-border-color: #dde1e7;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1;
+}
+
+.detail-separator {
+    -fx-background-color: #e0e0e0;
+    -fx-padding: 4 0 0 0;
+}
+
+.detail-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555555;
+}
+
+.detail-value {
+    -fx-font-size: 13px;
+    -fx-text-fill: #222222;
+}
+
+.detail-value-bold {
+    -fx-font-size: 13px;
+    -fx-text-fill: #222222;
+    -fx-font-weight: bold;
+}
+
+.start-btn {
+    -fx-background-color: #2979ff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.start-btn:hover {
+    -fx-background-color: #1565c0;
+}
+
+.start-btn:pressed {
+    -fx-background-color: #0d47a1;
+}
+
+.close-btn {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.close-btn:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.close-btn:pressed {
+    -fx-background-color: #eeeeee;
+}
